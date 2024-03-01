@@ -1,0 +1,152 @@
+        header {
+            grid-area: header;
+            background-image: url("banner.jpg");
+            background-size: cover;
+            height: 300px;
+            text-align: center;
+            padding-top: 150px;
+            background-color: rgb(236, 236, 234);
+            border-radius: 10px;
+            border: 2px solid black; 
+        }
+
+        h1 {
+            font-size: 64px;
+            text-transform: uppercase;
+            font-family: "Forte Forward", cursive;
+        }
+
+        nav {
+            grid-area: nav;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(179, 134, 95);
+            border: 2px solid black; 
+        }
+
+        .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: rgb(236, 236, 234);
+                color: black;
+                font-family: "Forte Forward", cursive; 
+                text-decoration: none; 
+                border: 2px solid black; 
+                border-radius: 5px; 
+                transition: background-color 0.3s ease; 
+                width: 150px; 
+                text-align: center; 
+            
+        }
+        
+        .button:hover {
+            background-color: #636568; 
+        }
+
+        .h2 {
+            font-family: Calibri, sans-serif;
+    font-size: 28px;
+        }
+
+        main {
+            grid-area: main;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(236, 236, 234);
+            border: 2px solid black; 
+            font-family: Calibri, sans-serif;
+    font-size: 20px;
+           
+        }
+
+        .responsive-image {
+            max-width: 50%;
+            height: auto;
+        }
+        .responsive-image2 {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 5px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid black; 
+        }
+
+        .aside1 {
+            grid-area: aside1;
+
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .aside2 {
+            grid-area: aside2;
+      border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: rgb(236, 236, 234);
+            border-radius: 10px;
+            border: 2px solid black; 
+        }
+
+        body {
+            background-color: wheat;
+        }
+        .link-list {
+            list-style-type: none; 
+            padding: 0; 
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .link-list li {
+            margin-bottom: 5px; 
+        }
+       
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+        'header header header header header header'
+        'nav nav nav nav nav nav'
+                'aside1 main main main main aside2'
+                'footer footer footer footer footer footer';
+            grid-gap: .5em;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+            ul li {
+                display: inline-block;
+            }
+            @media only screen and (max-width: 900px) {
+                .responsive-image2 {
+                    max-width: 50%;
+                    height: auto;
+                }
+            
+                
+                .grid-container {
+                    display: grid;
+                    grid-template-areas:
+                        'header header header header header header'
+                        'nav nav nav nav nav nav'
+                        'main main main main main main'
+                        'aside1 aside1 aside1 aside1 aside1 aside1'  /* Aseta aside1 näkyviin */
+                        'aside2 aside2 aside2 aside2 aside2 aside2'  /* Aseta aside2 näkyviin */
+                        'footer footer footer footer footer footer';
+                    grid-gap: .5em;
+                    grid-template-columns: repeat(6, 1fr);
+                }
+            
+                ul li {
+                    display: inline-block;
+                }
+            }
+      
