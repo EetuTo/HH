@@ -130,6 +130,9 @@
                     max-width: 50%;
                     height: auto;
                 }
+                     header h1 {
+        max-width: 80%; 
+    }
             
                 
                 .grid-container {
@@ -138,8 +141,8 @@
                         'header header header header header header'
                         'nav nav nav nav nav nav'
                         'main main main main main main'
-                        'aside1 aside1 aside1 aside1 aside1 aside1'  /* Aseta aside1 näkyviin */
-                        'aside2 aside2 aside2 aside2 aside2 aside2'  /* Aseta aside2 näkyviin */
+                        'aside1 aside1 aside1 aside1 aside1 aside1'
+                        'aside2 aside2 aside2 aside2 aside2 aside2' 
                         'footer footer footer footer footer footer';
                     grid-gap: .5em;
                     grid-template-columns: repeat(6, 1fr);
