@@ -1,0 +1,17 @@
+{
+  "palaveri": {
+    "aihe": "JSON harjoittelua",
+    "osallistujat": {
+      "lukumaara": 5,
+      "nimet": [
+        "Pete P.",
+        "Masa M.",
+        "Juha J.",
+        "Liisa L.",
+        "Åke L."
+      ]
+    },
+    "paikka": "Tico Cafe, Helsinki",
+    "alkamis_aika": "2024-12-10T10:00:00"
+  }
+}
