@@ -1,0 +1,38 @@
+{
+  "patches": [
+    {
+      "patchName": "14.24",
+      "date": "12/18/2024",
+      "championChanges": [
+        {
+          "champion": "Tahm Kench",
+          "change": "Base Armor: 42 ⇒ 39"
+        }
+      ]
+    },
+    {
+      "patchName": "14.23",
+      "date": "11/19/2024",
+      "championChanges": [
+        {
+          "champion": "Tahm Kench",
+          "change": "Passive - An Acquired Taste\nBase Health: 6-48 (based on level) (+2% AP per 100 bonus health) (+4% of his bonus health) ⇒ 6-48 (based on level) (+1.5% AP per 100 bonus health) (+4% of his bonus health)"
+        },
+        {
+          "champion": "Tahm Kench",
+          "change": "R - Devour\nShield Strength: 650/800/950 (+150% AP) ⇒ 650/800/950 (+100% AP)"
+        }
+      ]
+    },
+    {
+      "patchName": "14.22",
+      "date": "11/5/2024",
+      "championChanges": [
+        {
+          "champion": "Tahm Kench",
+          "change": "No changes"
+        }
+      ]
+    }
+  ]
+}
