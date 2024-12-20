@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahm Kench the GOAT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home" class="nav-link" id="link-home">Tahm Kench</a>
+        <a href="#page1" class="nav-link" id="link-page1">Skins</a>
+        <a href="#page2" class="nav-link" id="link-page2">Guides</a>
+        <a href="#page3" class="nav-link" id="link-page3">Patch Notes</a>
+    </div>
+
+    <img src="TahmKench_0.jpg" alt="Website Banner" class="banner" style="width: 100%; height: auto;">
+
+    <section id="home">
+        <h1>Tahm Kench -"The River King"</h1>
+        <p>"Known by many names throughout history, the demon Tahm Kench travels the waterways of Runeterra, feeding his insatiable appetite with the misery of others. Though he may appear singularly charming and proud, he swaggers through the physical realm like a vagabond in search of unsuspecting prey. His lashing tongue can stun even a heavily armored warrior from a dozen paces, and to fall into his rumbling belly is to tumble into an abyss from which there is little hope of return."</p>
+        <div class="youtube-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/u9RM4HwwoKs?si=xnmwqiNzjIO9RHrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="page1">
+        <h1>Skins</h1>
+        <div class="carousel">
+            <img src="TahmKench_1.jpg" alt="Image 1" class="carousel-image" id="carousel-image">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="page2">
+        <h1>Guides</h1>
+        <div class="url-links">
+            <div class="link-item">
+                <a href="https://u.gg/lol/champions/tahmkench/build" target="_blank">u.gg/lol</a>
+                <p>Most commonly used skill priority, items and talents.</p>
+            </div>
+            <div class="link-item">
+                <a href="https://www.mobafire.com/league-of-legends/champion/tahm-kench-126" target="_blank">Mobafire</a>
+                <p>Top rated Tahm Kench builds and guides from the community.</p>
+            </div>
+        </div>
+        <div class="youtube-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9J9bHH1VTUQ?si=vKXQqkBu3Sc4tIhy" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="page3">
+        <h1>Patch Notes for Tahm Kench</h1>
+        <div id="patch-list"></div>
+    </section>
+
+    <script>
+        fetch('https://raw.githubusercontent.com/EetuTo/HH/main/patches.json')
+            .then(response => response.json())
+            .then(data => {
+                const patches = data.patches;
+                const patchListContainer = document.getElementById("patch-list");
+                patches.forEach(patch => {
+                    const patchDiv = document.createElement("div");
+                    patchDiv.classList.add("patch");
+                    const patchName = document.createElement("h3");
+                    patchName.textContent = `Patch ${patch.patchName} - ${patch.date}`;
+                    patchDiv.appendChild(patchName);
+                    const changesList = document.createElement("ul");
+                    patch.championChanges.forEach(change => {
+                        if (change.champion === "Tahm Kench") {
+                            const changeItem = document.createElement("li");
+                            changeItem.textContent = change.change;
+                            changesList.appendChild(changeItem);
+                        }
+                    });
+                    patchDiv.appendChild(changesList);
+                    patchListContainer.appendChild(patchDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading the JSON:', error);
+            });
+
+        let slideIndex = 0;
+        const images = [
+            "TahmKench_1.jpg",
+            "TahmKench_2.jpg",
+            "TahmKench_3.jpg",
+            "TahmKench_11.jpg",
+            "TahmKench_20.jpg",
+            "TahmKench_30.jpg"
+        ];
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= images.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = images.length - 1;
+            const imageElement = document.getElementById("carousel-image");
+            imageElement.src = images[slideIndex];
+        }
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
